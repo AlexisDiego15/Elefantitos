@@ -14,28 +14,50 @@
             font-family: Arial, sans-serif;
         }
 
-        .background-container {
+        .background-container, .background-container-middle, .background-container-bottom {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
+            height: 33.33%; /* Ajustar para cubrir un tercio del alto de la pantalla */
             overflow: hidden;
             z-index: -1;
         }
 
-        .background-slide {
+        .background-container {
+            top: 0;
+        }
+
+        .background-container-middle {
+            top: 33.33%;
+        }
+
+        .background-container-bottom {
+            bottom: 0;
+        }
+
+        .background-slide, .background-slide-middle, .background-slide-bottom {
             position: absolute;
-            width: 200%; /* Ajustar para cubrir el doble del ancho de la pantalla */
+            width: 200%;
             height: 100%;
             display: flex;
+        }
+
+        .background-slide {
             animation: slide 30s linear infinite;
         }
 
-        .background-slide img {
+        .background-slide-middle {
+            animation: slide-middle 30s linear infinite;
+        }
+
+        .background-slide-bottom {
+            animation: slide-reverse 20s linear infinite;
+        }
+
+        .background-slide img, .background-slide-middle img, .background-slide-bottom img {
             width: 10%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Mantener la proporción de la imagen */
+            flex-shrink: 0;
+            animation: zoom 30s linear infinite;
         }
 
         @keyframes slide {
@@ -43,9 +65,24 @@
             100% { transform: translateX(-50%); }
         }
 
+        @keyframes slide-middle {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes slide-reverse {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
         .title {
             position: absolute;
-            top: 30%;
+            top: 10%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 3em;
@@ -69,16 +106,16 @@
         }
 
         .countdown-container {
-            top: 50%;
+            top: 40%;
         }
 
         .event-date-container {
-            top: 70%;
+            top: 60%;
         }
 
         .play-button {
             position: absolute;
-            top: 10%;
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 1em;
@@ -90,11 +127,11 @@
         }
 
         @media (max-width: 768px) {
-            .background-slide {
-                animation: slide 20s linear infinite;
+            .background-slide, .background-slide-middle, .background-slide-bottom {
+                animation-duration: 20s;
             }
 
-            .background-slide img {
+            .background-slide img, .background-slide-middle img, .background-slide-bottom img {
                 width: 20%;
             }
 
@@ -114,11 +151,11 @@
         }
 
         @media (max-width: 480px) {
-            .background-slide {
-                animation: slide 15s linear infinite;
+            .background-slide, .background-slide-middle, .background-slide-bottom {
+                animation-duration: 15s;
             }
 
-            .background-slide img {
+            .background-slide img, .background-slide-middle img, .background-slide-bottom img {
                 width: 50%;
             }
 
@@ -141,29 +178,125 @@
 <body>
     <div class="background-container">
         <div class="background-slide">
-			<img src="inv/q.jpg" alt="Imagen 1">
-            <img src="inv/w.jpg" alt="Imagen 2">
-            <img src="inv/e.jpg" alt="Imagen 3">
-            <img src="inv/r.jpg" alt="Imagen 4">
-            <img src="inv/t.jpg" alt="Imagen 5">
-            <img src="inv/y.jpg" alt="Imagen 6">
-            <img src="inv/u.jpg" alt="Imagen 7">
-            <img src="inv/i.jpg" alt="Imagen 8">
-            <img src="inv/o.jpg" alt="Imagen 9">
-            <img src="inv/p.jpg" alt="Imagen 10">
-            <img src="inv/q.jpg" alt="Imagen 1">
-            <img src="inv/w.jpg" alt="Imagen 2">
-            <img src="inv/e.jpg" alt="Imagen 3">
-            <img src="inv/r.jpg" alt="Imagen 4">
-            <img src="inv/t.jpg" alt="Imagen 5">
-            <img src="inv/y.jpg" alt="Imagen 6">
-            <img src="inv/u.jpg" alt="Imagen 7">
-            <img src="inv/i.jpg" alt="Imagen 8">
-            <img src="inv/o.jpg" alt="Imagen 9">
-            <img src="inv/p.jpg" alt="Imagen 10">
+            <img src="1/11.jpeg" alt="Imagen 1">
+            <img src="1/12.jpg" alt="Imagen 2">
+            <img src="1/13.jpeg" alt="Imagen 3">
+            <img src="1/14.jpeg" alt="Imagen 4">
+            <img src="1/15.jpg" alt="Imagen 5">
+            <img src="1/16.jpg" alt="Imagen 6">
+            <img src="1/17.jpg" alt="Imagen 7">
+            <img src="1/18.jpg" alt="Imagen 8">
+            <img src="1/11.jpeg" alt="Imagen 1">
+            <img src="1/12.jpg" alt="Imagen 2">
+            <img src="1/13.jpeg" alt="Imagen 3">
+            <img src="1/14.jpeg" alt="Imagen 4">
+            <img src="1/15.jpg" alt="Imagen 5">
+            <img src="1/16.jpg" alt="Imagen 6">
+            <img src="1/17.jpg" alt="Imagen 7">
+            <img src="1/18.jpg" alt="Imagen 8">
         </div>
     </div>
+
+    <div class="background-container-middle">
+        <div class="background-slide-middle">
+			<img src="2/201.jpg" alt="Imagen 1">
+            <img src="2/202.jpg" alt="Imagen 2">
+            <img src="2/203.jpg" alt="Imagen 3">
+            <img src="2/204.jpg" alt="Imagen 4">
+            <img src="2/205.jpg" alt="Imagen 5">
+            <img src="2/206.jpg" alt="Imagen 6">
+            <img src="2/207.jpg" alt="Imagen 7">
+            <img src="2/208.jpg" alt="Imagen 8">
+            <img src="2/209.jpg" alt="Imagen 9">
+            <img src="2/210.jpg" alt="Imagen 10">
+            <img src="2/211.jpg" alt="Imagen 11">
+            <img src="2/212.png" alt="Imagen 12">
+            <img src="2/213.jpg" alt="Imagen 13">
+            <img src="2/214.jpg" alt="Imagen 14">
+            <img src="2/215.jpg" alt="Imagen 15">
+            <img src="2/216.jpg" alt="Imagen 16">
+            <img src="2/217.jpg" alt="Imagen 17">
+            <img src="2/201.jpg" alt="Imagen 1">
+            <img src="2/202.jpg" alt="Imagen 2">
+            <img src="2/203.jpg" alt="Imagen 3">
+            <img src="2/204.jpg" alt="Imagen 4">
+            <img src="2/205.jpg" alt="Imagen 5">
+            <img src="2/206.jpg" alt="Imagen 6">
+            <img src="2/207.jpg" alt="Imagen 7">
+            <img src="2/208.jpg" alt="Imagen 8">
+            <img src="2/209.jpg" alt="Imagen 9">
+            <img src="2/210.jpg" alt="Imagen 10">
+            <img src="2/211.jpg" alt="Imagen 11">
+            <img src="2/212.png" alt="Imagen 12">
+            <img src="2/213.jpg" alt="Imagen 13">
+            <img src="2/214.jpg" alt="Imagen 14">
+            <img src="2/215.jpg" alt="Imagen 15">
+            <img src="2/216.jpg" alt="Imagen 16">
+            <img src="2/217.jpg" alt="Imagen 17">
+        </div>
+    </div>
+
+    <div class="background-container-bottom">
+        <div class="background-slide-bottom">
+			<img src="3/301.jpg" alt="Imagen 1">
+            <img src="3/302.jpg" alt="Imagen 2">
+            <img src="3/303.jpg" alt="Imagen 3">
+            <img src="3/304.jpg" alt="Imagen 4">
+            <img src="3/305.jpg" alt="Imagen 5">
+            <img src="3/306.jpg" alt="Imagen 6">
+            <img src="3/307.jpg" alt="Imagen 7">
+            <img src="3/308.jpg" alt="Imagen 8">
+            <img src="3/309.jpg" alt="Imagen 9">
+            <img src="3/310.jpg" alt="Imagen 10">
+            <img src="3/311.jpg" alt="Imagen 11">
+            <img src="3/312.jpg" alt="Imagen 12">
+            <img src="3/313.jpg" alt="Imagen 13">
+            <img src="3/314.jpg" alt="Imagen 14">
+            <img src="3/315.jpg" alt="Imagen 15">
+            <img src="3/316.jpg" alt="Imagen 16">
+            <img src="3/317.jpg" alt="Imagen 17">
+            <img src="3/318.jpg" alt="Imagen 18">
+            <img src="3/319.jpg" alt="Imagen 19">
+            <img src="3/320.jpg" alt="Imagen 20">
+            <img src="3/321.jpg" alt="Imagen 21">
+            <img src="3/322.jpg" alt="Imagen 22">
+            <img src="3/323.jpg" alt="Imagen 23">
+            <img src="3/324.jpg" alt="Imagen 24">
+            <img src="3/325.jpg" alt="Imagen 25">
+            <img src="3/326.jpg" alt="Imagen 26">
+            <img src="3/327.jpg" alt="Imagen 27">
+            			<img src="3/301.jpg" alt="Imagen 1">
+            <img src="3/302.jpg" alt="Imagen 2">
+            <img src="3/303.jpg" alt="Imagen 3">
+            <img src="3/304.jpg" alt="Imagen 4">
+            <img src="3/305.jpg" alt="Imagen 5">
+            <img src="3/306.jpg" alt="Imagen 6">
+            <img src="3/307.jpg" alt="Imagen 7">
+            <img src="3/308.jpg" alt="Imagen 8">
+            <img src="3/309.jpg" alt="Imagen 9">
+            <img src="3/310.jpg" alt="Imagen 10">
+            <img src="3/311.jpg" alt="Imagen 11">
+            <img src="3/312.jpg" alt="Imagen 12">
+            <img src="3/313.jpg" alt="Imagen 13">
+            <img src="3/314.jpg" alt="Imagen 14">
+            <img src="3/315.jpg" alt="Imagen 15">
+            <img src="3/316.jpg" alt="Imagen 16">
+            <img src="3/317.jpg" alt="Imagen 17">
+            <img src="3/318.jpg" alt="Imagen 18">
+            <img src="3/319.jpg" alt="Imagen 19">
+            <img src="3/320.jpg" alt="Imagen 20">
+            <img src="3/321.jpg" alt="Imagen 21">
+            <img src="3/322.jpg" alt="Imagen 22">
+            <img src="3/323.jpg" alt="Imagen 23">
+            <img src="3/324.jpg" alt="Imagen 24">
+            <img src="3/325.jpg" alt="Imagen 25">
+            <img src="3/326.jpg" alt="Imagen 26">
+            <img src="3/327.jpg" alt="Imagen 27">
+        </div>
+    </div>
+
     <div class="title">Alexis & Zayra</div>
+
     <div class="countdown-container">
         <div id="countdown"></div>
     </div>
@@ -171,9 +304,8 @@
         <div>24 de junio de 2024 | 3 años</div>
     </div>
 
-   			
-			<audio id="background-music" loop autoplay>
-        <source src="inv/loveeeu.mp3" type="audio/mpeg">
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
 
@@ -183,7 +315,7 @@
         function updateCountdown() {
             const countdownElement = document.getElementById('countdown');
             const targetDate = new Date('June 24, 2024 00:00:00').getTime();
-            const now = new Date().getTime();
+            const now = new Date().getTime()
             const distance = targetDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -195,7 +327,7 @@
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                countdownElement.innerHTML = "¡Es hoy!";
+                countdownElement.innerHTML = "¡Felices 3 años amor!";
             }
         }
 

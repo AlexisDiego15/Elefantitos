@@ -36,11 +36,17 @@
             width: 10%;
             height: 100%;
             object-fit: cover;
+            animation: zoom 30s linear infinite;
         }
 
         @keyframes slide {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        @keyframes zoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .title {
@@ -171,8 +177,8 @@
         <div>24 de junio de 2024 | 3 años</div>
     </div>
 
-   			
-			<audio id="background-music" loop autoplay>
+			
+	<audio id="background-music" loop autoplay>
         <source src="inv/loveeeu.mp3" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
@@ -195,7 +201,7 @@
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                countdownElement.innerHTML = "¡Es hoy!";
+                countdownElement.innerHTML = "¡Felices 3 años amor!";
             }
         }
 
